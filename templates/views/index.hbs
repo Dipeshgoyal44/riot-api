@@ -6,21 +6,10 @@
     <title>LOL app</title>
 </head>
 <body>
-    <div class="app-wrap">
-        <header>
-            <input type="text" autocomplete="off" class="search-box" placeholder="Search for a city..." />
-        </header>
-        <main>
-            <br />
-            <h3>Summoner name is:  <div class = "name"></div> </h3>
-            <br />
-            <h3>Summoner ID is: <div class = "id"> </div></h3>
-            <br />
-            <h3>Summoner Level is:  <div class = "summonerLevel"></div> </h3>
-            <br />
-        </main>
-    </div>
-    <script src="/js/script.js"></script>
+    <form action="/profile">
+    <input type="text" id= "summoner_name"  placeholder="Enter Summoner Name" />
+    <input type="submit" id = "submit" value="Submit">
+    </form>
 </body>
-
+<script src="/js/script.js"></script>
 </html>

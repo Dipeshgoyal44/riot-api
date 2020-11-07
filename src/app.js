@@ -33,6 +33,11 @@ app.get('', (req, res) => {
     res.render('index', {})
 })
 
+app.get('/profile', (req, res) => {
+    res.render('profile', {})
+})
+
+
 app.get('/search', (req, res) => {
     
     if (!req.query.summoner) {
