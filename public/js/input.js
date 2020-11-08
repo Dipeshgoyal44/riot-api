@@ -7,6 +7,5 @@ function getValue() {
     var summoner = document.getElementById("summoner_name").value;   
     sessionStorage.summoner = summoner;
 }
-    
 
 
