@@ -2,7 +2,8 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 var request = require('request');
 const path = require('path')
-const api_data = require('./utilis/api_data')
+const summoner_id = require('./utilis/summonerid')
+const rank_data = require('./utilis/rank_data')
 const hbs = require('hbs');
 
 
@@ -22,13 +23,6 @@ hbs.registerPartials(partialPath)
 // Setup static directory to serve
 app.use(express.static(PublicDirectory))
 
-// app.engine('handlebars', exphbs({
-//     defaultLayout: 'main'
-// }));
-
-// app.set('view engine', 'handlebars');
-
-
 app.get('', (req, res) => {
     res.render('index', {})
 })
@@ -46,16 +40,28 @@ app.get('/search', (req, res) => {
         })
     }   
     const summoner = req.query.summoner
-api_data(summoner, (error, { id, name, summonerLevel} = {}) => {
+    summoner_id(summoner, (error, { id, name, summonerLevel} = {}) => {
     if (error) {
         return res.send({error})
         }
+
+    rank_data(id, (error, { queueType, tier, rank, wins, loses, lp} = {}) => {
+        if (error) {
+            return res.send({error})
+            }
         res.send({
             id,
             name,
-            summonerLevel
+            summonerLevel,
+            queueType,
+            tier,
+            rank,
+            wins, 
+            loses,
+            lp
         })
     })
+})
 });
 
 

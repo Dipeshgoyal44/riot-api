@@ -1,5 +1,5 @@
 const request = require('request')
-var api_key = 'RGAPI-b03f64c2-69ea-4880-bb18-d280d41c2cc4';
+var api_key = 'RGAPI-00a552ac-a4c7-4b4b-9b26-6e703a450a17';
 
 const data =  (s_toSearch,callback) => {
 const url = 'https://oc1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + s_toSearch + '?api_key=' + api_key;
